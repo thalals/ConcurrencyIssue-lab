@@ -62,7 +62,8 @@ class OptimisticLockStockFacadeTest {
         Stock stock = stockRepository.findById(1L).orElseThrow();
 
         //100 - (1*100) = 0
-        assertThat(stock.getQuantity()).isEqualTo(0L);
+        // 레이스 컨디션 발생 fail
+        assertThat(stock.getQuantity()).isZero();
 
     }
 }
